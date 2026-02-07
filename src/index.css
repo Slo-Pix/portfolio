@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Roboto+Mono:wght@300;400;700&display=swap');
+
+:root {
+    --bg-color: #0b0c10;
+    --text-main: #c5c6c7;
+    --primary-accent: #66fcf1;
+    /* Cyan */
+    --secondary-accent: #45a29e;
+    /* Dim Cyan */
+    --highlight: #00BFFF;
+    /* Deep Sky Blue */
+    /* Terminal Green */
+    --font-main: 'Roboto Mono', monospace;
+    --font-code: 'Fira Code', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-accent);
+}

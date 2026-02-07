@@ -1,0 +1,231 @@
+.achievements-section {
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    width: 100%;
+}
+
+.achievements-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.achievements-terminal-container {
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 40px;
+}
+
+.achievements-terminal {
+    width: 100%;
+    min-height: auto;
+    /* Adapt to content */
+    background: rgba(11, 12, 16, 0.95);
+    border: 1px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    font-family: 'Fira Code', monospace;
+}
+
+.achievements-terminal .terminal-body {
+    padding-bottom: 20px;
+}
+
+/* Timeline Container */
+.timeline {
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+    position: relative;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 30px;
+    position: relative;
+    padding-bottom: 50px;
+    /* Space between items */
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+/* Timeline Line & Dot logic - strictly left aligned as per image */
+.timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 40px;
+    /* Width reserved for the line column */
+    position: relative;
+}
+
+.timeline-dot {
+    width: 16px;
+    height: 16px;
+    background: #0b0c10;
+    /* Dark center */
+    border: 3px solid var(--highlight);
+    /* Blue border */
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 10px var(--highlight);
+    margin-top: 5px;
+    /* Adjust to align with card top */
+}
+
+/* Continuous line logic. 
+   We want a line connecting dots. 
+   We can make a long line on the .timeline container 
+   OR per item. The image shows a continuous blue line.
+*/
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    /* Start at first dot */
+    bottom: 25px;
+    /* End at last dot approximately */
+    left: 39px;
+    /* 20px padding + 20px half of min-width roughly? Let's adjust */
+    width: 2px;
+    background: rgba(0, 191, 255, 0.3);
+    /* Dim blue line */
+    z-index: 0;
+}
+
+/* Adjusting absolute line to align exactly with dots */
+.timeline .timeline-item .timeline-marker {
+    /* Marker positioning context */
+    align-items: center;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 20px;
+    bottom: -50px;
+    /* Extend to next item */
+    width: 2px;
+    background: rgba(0, 191, 255, 0.3);
+    z-index: 0;
+}
+
+.timeline-item:last-child .timeline-line {
+    display: none;
+}
+
+/* Card Content */
+.timeline-content {
+    flex-grow: 1;
+}
+
+.achievement-card {
+    background: #1f2833;
+    border-radius: 12px;
+    padding: 30px;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--highlight);
+    box-shadow: 0 10px 40px rgba(0, 191, 255, 0.1);
+}
+
+/* Tag Styles */
+.achievement-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: var(--font-code);
+}
+
+.tag-leadership {
+    background: rgba(0, 191, 255, 0.15);
+    color: var(--highlight);
+    border: 1px solid rgba(0, 191, 255, 0.3);
+}
+
+.tag-technical {
+    background: rgba(102, 252, 241, 0.15);
+    color: var(--primary-accent);
+    border: 1px solid rgba(102, 252, 241, 0.3);
+}
+
+.tag-competition {
+    background: rgba(255, 189, 46, 0.15);
+    color: #ffbd2e;
+    border: 1px solid rgba(255, 189, 46, 0.3);
+}
+
+/* Typography */
+.achievement-title {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.achievement-subtitle {
+    font-size: 1.1rem;
+    color: var(--highlight);
+    /* Blue text like image */
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.achievement-details {
+    list-style: none;
+    padding-left: 0;
+}
+
+.achievement-details li {
+    font-size: 0.95rem;
+    color: #c5c6c7;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Custom bullet logic */
+.achievement-details li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--highlight);
+}
+
+@media (max-width: 768px) {
+    .timeline {
+        padding: 10px;
+    }
+
+    .timeline-item {
+        gap: 15px;
+    }
+
+    .timeline-marker {
+        min-width: 20px;
+    }
+
+    .achievement-card {
+        padding: 20px;
+    }
+
+    .achievement-title {
+        font-size: 1.2rem;
+    }
+}

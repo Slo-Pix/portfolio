@@ -1,0 +1,215 @@
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 4rem;
+}
+
+.hero-content {
+    flex: 1;
+    text-align: left;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.highlight {
+    color: var(--highlight);
+}
+
+.highlight-text {
+    color: var(--text-main);
+    text-decoration: underline;
+    text-decoration-color: var(--highlight);
+    text-decoration-thickness: 3px;
+}
+
+.hero-subtitle {
+    font-family: var(--font-code);
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.8rem 2.5rem;
+    border-radius: 50px;
+    /* Rounded pill shape like screenshot */
+    font-family: var(--font-code);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 160px;
+}
+
+.cta-button.primary {
+    border: 2px solid #fff;
+    color: #fff;
+    background: transparent;
+}
+
+.cta-button.primary:hover {
+    background: #fff;
+    color: #000;
+}
+
+.cta-button.secondary {
+    border: 2px solid #333;
+    /* Darker border */
+    color: #ccc;
+    background: transparent;
+}
+
+.cta-button.secondary:hover {
+    border-color: #fff;
+    color: #fff;
+}
+
+/* Cursor Animation */
+.cursor {
+    display: inline-block;
+    animation: blink 1s step-end infinite;
+    color: var(--highlight);
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Image Side */
+.hero-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-image-placeholder {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    /* background: #111; Removed to transparent */
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #555;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 2;
+    padding: 8px;
+    /* Tighter gap */
+    transform: rotate(-15deg);
+}
+
+.hero-image-placeholder::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    /* Adjusted outset */
+    border-radius: 50%;
+    padding: 6px;
+    /* Thinner border */
+    background: conic-gradient(from 0deg,
+            transparent 0deg 180deg,
+            #ffffff 180deg 360deg);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Counter-rotate image removed as container is not rotated */
+
+.about-me-link {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    /* Move firmly above the image */
+    color: var(--highlight);
+    font-family: var(--font-code);
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 10;
+    pointer-events: auto;
+    white-space: nowrap;
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+    /* Subtle glow */
+}
+
+/* Glow Effect */
+.glow-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(39, 201, 63, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+    /* Green glow */
+    z-index: 1;
+    pointer-events: none;
+}
+
+@media (max-width: 968px) {
+    .hero-container {
+        flex-direction: column;
+        /* Changed from column-reverse to column since image is now first in DOM */
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image-placeholder {
+        width: 250px;
+        height: 250px;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+}

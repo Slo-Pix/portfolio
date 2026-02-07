@@ -1,0 +1,72 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    padding: 1.5rem 0;
+    font-family: var(--font-code);
+}
+
+.navbar.scrolled {
+    padding: 1rem 0;
+    background: rgba(11, 12, 16, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    /* Center usage */
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    font-size: 1rem;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--highlight);
+    /* Green */
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--highlight);
+    /* Green */
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a.connect-btn {
+    color: #FFD700;
+}
+
+.nav-links a.connect-btn:hover {
+    color: #ffe44d;
+    /* Lighter gold on hover */
+}
+
+.nav-links a.connect-btn::after {
+    background-color: #FFD700;
+}
