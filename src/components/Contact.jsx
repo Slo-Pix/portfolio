@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaLinkedin, FaGithub, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope, FaPhone, FaMapMarkerAlt, FaMedium, FaTwitter } from 'react-icons/fa';
 import { SiLeetcode, SiGeeksforgeeks, SiCodechef, SiHackerrank } from 'react-icons/si';
 import './Contact.css';
 
@@ -30,25 +30,22 @@ const Contact = () => {
             <div className="contact-divider"></div>
 
             <div className="social-links-container">
-                <a href="#" className="social-btn" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/shubh465/" className="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                     <FaLinkedin />
                 </a>
-                <a href="https://github.com/Slo-Pix" className="social-btn" aria-label="GitHub">
+                <a href="https://github.com/Slo-Pix/" className="social-btn" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                     <FaGithub />
                 </a>
-                <a href="#" className="social-btn" aria-label="LeetCode">
-                    <SiLeetcode />
+                <a href="https://medium.com/@slopixelz" className="social-btn" aria-label="Medium" target="_blank" rel="noopener noreferrer">
+                    <FaMedium />
                 </a>
-                <a href="#" className="social-btn" aria-label="GeeksForGeeks">
-                    <SiGeeksforgeeks />
-                </a>
-                <a href="#" className="social-btn" aria-label="CodeChef">
-                    <SiCodechef />
+                <a href="https://x.com/slopixelz" className="social-btn" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer">
+                    <FaTwitter />
                 </a>
             </div>
 
             <div className="footer-copyright">
-                <p>&copy; 2026 Shubham Sharma</p>
+                <p>&copy; Shubham Sharma 2026</p>
             </div>
         </section>
     );
